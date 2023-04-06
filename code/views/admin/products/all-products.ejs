@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%-include('../../shared/includes/head', { pageTitle: 'All Products' })%>
+        <link rel="stylesheet" href="/styles/products.css" />
+        <link rel="stylesheet" href="/styles/search-box.css" />
+        <script src="/scripts/product-management.js" defer></script>
+    </head>
+
+    <body>
+        <%-include('../../shared/includes/header')%>
+        <main>
+            <div class="info-container">
+                <h1>Product Administration</h1>
+                <p>
+                    <a href="/admin/products/new" class="btn btn-green">Add Product</a>
+                </p>
+            </div>
+            <%-include('../../shared/includes/product-search-box',{formAction:'/admin/products/search'})%>
+            <ul id="products-grid">
+                <%for (const product of products) {%>
+                <li id="product-cart-<%=product.id%>">
+                    <%-include('../../shared/includes/product-item', { product: product })%>
+                </li>
+                <%}%>
+            </ul>
+        </main>
+        <%-include('../../shared/includes/footer')%>
+    </body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%-include('../../shared/includes/head', { pageTitle: 'Profile (Admin)' })%>
+        <link rel="stylesheet" href="/styles/forms.css" />
+        <link rel="stylesheet" href="/styles/auth.css" />
+    </head>
+
+    <body>
+        <%-include('../../shared/includes/header')%>
+        <main>
+            <form class="logout-form" action="/profile/logout" method="POST">
+                <input type="hidden" name="_csrf" value="<%=locals.csrfToken%>">
+                <h2><%=admin.name%></h2>
+                <button class="btn btn-red">Logout</button>
+            </form>
+            <% if (inputData.errorMessage) { %>
+            <div class="alert">
+                <h2>Invalid Input</h2>
+                <p><%=inputData.errorMessage%></p>
+            </div>
+            <%}%>
+            <form action="/admin/update-admin/<%=admin._id%>" method="POST" class="cart main-form">
+            <input type="hidden" name="_csrf" value="<%=locals.csrfToken%>" />
+            <p>
+                <label for="email">E-Mail</label>
+                <input type="email" id="email" name="email" value="<%=admin.email%>" required />
+            </p>
+            <p>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" minlength="6" />
+            </p>
+            <p>
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" value="<%=admin.name%>" required />
+            </p>
+            <div class="auth-action">
+                <button class="btn btn-primary">Update Account</button>
+            </div>
+            </form>
+        </main>
+        <%-include('../../shared/includes/footer')%>
+    </body>
+
+</html>

@@ -1,0 +1,23 @@
+<div class="cart" id="search-box">
+    <form action="<%=formAction%>" method="POST">
+        <input type="hidden" name="_csrf" value="<%=locals.csrfToken%>">
+        <button>Go</button>
+        <%if(locals.isAdmin) {%>
+        <div id="search-container">
+            <input value="<%=inputData.orderToken%>" name="token" placeholder="Name / Adress / Postal" type="text">
+        </div>
+        <%}%>
+        <div id="select-container">
+            <select name="status">
+                <option value="all" <%if (inputData.orderStatus === 'all') {%> selected <%}%>>All</option>
+                <option value="pending" <%if (inputData.orderStatus === 'pending') {%> selected <%}%>>Pending</option>
+                <option value="fulfilled" <%if (inputData.orderStatus === 'fulfilled') {%> selected <%}%>>Fulfilled</option>
+                <option value="cancelled" <%if (inputData.orderStatus === 'cancelled') {%> selected <%}%>>Cancelled</option>
+            </select>
+            <select name="sort">
+                <option value="new-old" <%if (inputData.orderSortType === 'new-old') {%> selected <%}%>>New-Old</option>
+                <option value="old-new" <%if (inputData.orderSortType === 'old-new') {%> selected <%}%>>Old-New</option>
+            </select>
+        </div>
+    </form>
+</div>

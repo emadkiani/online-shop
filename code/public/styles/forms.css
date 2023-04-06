@@ -1,0 +1,115 @@
+.main-form {
+    width: 100%;
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: var(--space-4);
+    background-color: var(--color-white);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--space-2);
+}
+
+hr {
+    border: 1px solid var(--color-primary-100);
+    margin: var(--space-4) 0;
+}
+
+select {
+    font: inherit;
+    padding: var(--space-2);
+    border-radius: var(--border-radius-small);
+}
+
+select:hover,
+select:focus {
+    background-color: var(--color-secondary-100);
+}
+
+input,
+textarea {
+    font: inherit;
+    background-color: var(--color-primary-100);
+    padding: var(--space-2);
+    border-radius: var(--border-radius-small);
+    border: 1px solid var(--color-secondary-300);
+    width: 100%;
+}
+
+input:hover,
+textarea:hover,
+input:focus,
+textarea:focus {
+    background-color: var(--color-secondary-100);
+    border: 1px solid var(--color-secondary-500);
+}
+
+textarea {
+    resize: none;
+}
+
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: var(--color-primary-500);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-small);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+#image-upload-control img {
+    margin: 0 var(--space-8);
+    display: none;
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: var(--border-radius-small);
+}
+
+.prodcut-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-4);
+}
+
+.prodcut-action a,
+.prodcut-action button {
+    width: 100%;
+    text-align: center;
+}
+
+.auth-action button {
+    width: 100%;
+}
+
+.logout-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 30rem;
+    margin: 0 auto var(--space-4) auto;
+}
+
+.logout-form h2 {
+    margin: 0;
+}
+
+@media (min-width: 48rem) {
+    .prodcut-action {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: var(--space-4);
+    }
+
+    .prodcut-action a,
+    .prodcut-action button {
+        width: 48%;
+        text-align: center;
+    }
+}

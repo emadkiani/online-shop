@@ -1,0 +1,99 @@
+#search-box {
+    margin: 0 0 var(--space-4) 0;
+    padding: var(--space-2);
+    background-color: var(--color-white);
+    width: 100%;
+}
+
+#search-box form {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+#search-container {
+    width: 100%;
+}
+
+#search-box button {
+    width: 100%;
+    cursor: pointer;
+    font: inherit;
+    font-weight: bold;
+    text-align: center;
+    border: 0 solid transparent;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--border-radius-small);
+    background-color: transparent;
+    color: var(--color-secondary-700);
+}
+
+#search-box button:hover,
+#search-box button:active {
+    background-color: var(--color-secondary-700);
+    color: var(--color-white);
+}
+
+#search-container input {
+    width: 100%;
+    font: inherit;
+    padding: var(--space-1);
+    border-radius: var(--border-radius-small);
+    border: 1px solid var(--color-secondary-300);
+}
+
+#search-container input:hover,
+#search-container input:focus {
+    border-color: var(--color-secondary-500);
+    background-color: var(--color-secondary-100);
+}
+
+#select-container {
+    width: 100%;
+}
+
+#select-container select {
+    width: 100%;
+    font: inherit;
+    padding: var(--space-1);
+    margin-top: var(--space-1);
+    border-radius: var(--border-radius-small);
+}
+
+#select-container select:hover,
+#select-container select:focus {
+    background-color: var(--color-secondary-100);
+}
+
+@media (min-width: 48rem) {
+    #search-box form {
+        flex-direction: row;
+    }
+
+    #search-box button {
+        width: fit-content;
+    }
+
+    #search-container {
+        width: 14rem;
+    }
+
+    #search-container input {
+        width: 100%;
+    }
+
+    #select-container {
+        width: fit-content;
+    }
+
+    #select-container select {
+        margin-top: 0;
+        width: 10rem;
+    }
+
+    #checkbox-container {
+        width: 6rem;
+    }
+}

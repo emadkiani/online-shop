@@ -1,0 +1,38 @@
+<article class="cart product-item">
+    <img src="<%=product.imageUrl%>" alt="<%=product.title%>" />
+    <div class="product-item-content">
+        <h3><%=product.brand%> <%=product.title%></h3>
+        <%if(product.quantity > 0) {%>
+        <%if(product.discount > 0) {%>
+        <p class="color-green"><del class="color-red">$<%=product.price%></del>
+            $<%=((product.price)*((100-product.discount)/100)).toFixed(2)%></p>
+        <%} else {%>
+        <p class="color-green">$<%= product.price %></p>
+        <%}%>
+        <%} else {%>
+        <p class="color-red">Out of stock</p>
+        <%}%>
+        <p><%=product.summary%></p>
+        <div class="product-item-actions">
+            <%if (locals.isAdmin) {%>
+            <a class="btn btn-primary" href="/admin/products/<%=product.id%>">Edit</a>
+            <button class="btn btn-alt-red delete-btn" data-productid="<%=product.id%>"
+                data-csrf="<%=locals.csrfToken%>">
+                Delete
+            </button>
+            <%} else {%>
+            <a class="btn btn-primary" href="/public/products/<%=product.id%>">Details</a>
+            <%if(product.quantity <= 0) {%>
+            <button class="btn-disabled" disabled>
+                Unavailable
+            </button>
+            <%} else {%>
+            <button class="btn btn-alt-green add-to-cart" data-productid="<%=product.id%>"
+                data-csrf="<%=locals.csrfToken%>">
+                Add cart
+            </button>
+            <%}%>
+        <%}%>
+        </div>
+    </div>
+</article>

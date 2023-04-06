@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%-include('../../shared/includes/head', { pageTitle: 'Add new product' })%>
+        <link rel="stylesheet" href="/styles/forms.css" />
+        <script src="/scripts/image-preview.js" defer></script>
+    </head>
+
+    <body>
+        <%-include('../../shared/includes/header')%>
+        <main>
+            <div class="info-container">
+                <h1>Update product</h1>
+            </div>
+            <%if (inputData.errorMessage) {%>
+            <div class="alert">
+                <h2>Invalid Credentials</h2>
+                <p><%=inputData.errorMessage%></p>
+            </div>
+            <%}%>
+            <%-include('includes/product-form',{submitPath:'/admin/products',product:{title:inputData.title,brand:inputData.brand,category:inputData.category,price:inputData.price,discount:inputData.discount,quantity:inputData.quantity,summary:inputData.summary,description:inputData.description},imageRequired:true})%>
+        </main>
+        <%-include('../../shared/includes/footer')%>
+    </body>
+
+</html>

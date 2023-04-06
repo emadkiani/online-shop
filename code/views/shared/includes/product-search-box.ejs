@@ -1,0 +1,29 @@
+<div class="cart" id="search-box">
+    <form action="<%=formAction%>" method="POST">
+        <input type="hidden" name="_csrf" value="<%=locals.csrfToken%>">
+        <button>Go</button>
+        <div id="search-container">
+            <input name="token" placeholder="Search" type="text" value="<%=inputData.productToken%>">
+        </div>
+        <div id="select-container">
+            <select name="category">
+                <option value="all" <%if (inputData.productCategory === 'all') {%> selected <%}%>>All Prodcuts</option>
+                <option value="phone" <%if (inputData.productCategory === 'phone') {%> selected <%}%>>Phone</option>
+                <option value="laptop" <%if (inputData.productCategory === 'laptop') {%> selected <%}%>>Laptop</option>
+                <option value="tablet" <%if (inputData.productCategory === 'tablet') {%> selected <%}%>>Tablet</option>
+                <option value="console" <%if (inputData.productCategory === 'console') {%> selected <%}%>>Console</option>
+            </select>
+            <select name="sort">
+                <option value="a-z" <%if (inputData.productSortType === 'a-z') {%> selected <%}%>>A-Z Alphabet</option>
+                <option value="z-a" <%if (inputData.productSortType === 'z-a') {%> selected <%}%>>Z-A Alphabet</option>
+                <option value="max-min" <%if (inputData.productSortType === 'max-min') {%> selected <%}%>>Max-Min Price</option>
+                <option value="min-max" <%if (inputData.productSortType === 'min-max') {%> selected <%}%>>Min-Max Price</option>
+            </select>
+        </div>
+        <div id="checkbox-container">
+            <input type='hidden' value='off' name='available'>
+            <input type='checkbox' value="on" name='available' <%if (inputData.productAvailable === 'on') {%> checked <%}%>>
+            <label for="available">In Stock</label>
+        </div>
+    </form>
+</div>

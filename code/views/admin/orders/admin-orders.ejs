@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%-include('../../shared/includes/head', { pageTitle: 'All Orders' })%>
+        <link rel="stylesheet" href="/styles/orders.css" />
+        <link rel="stylesheet" href="/styles/search-box.css" />
+        <script src="/scripts/order-management.js" defer></script>
+    </head>
+
+    <body>
+        <%-include('../../shared/includes/header')%>
+        <main>
+            <div class="info-container">
+                <h1>Orders</h1>
+            </div>
+            <%-include('../../shared/includes/order-search-box',{formAction:'/admin/orders/search'})%>
+            <%-include('../../shared/includes/order-list')%>
+        </main>
+        <%-include('../../shared/includes/footer')%>
+    </body>
+
+</html>

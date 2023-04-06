@@ -1,0 +1,37 @@
+<ul class="nav-items">
+    <%if (!locals.isAdmin) {%>
+    <li>
+        <a href="/cart">Cart <span class="badge cart-number"><%=locals.cart.totalQuantity%></span></a>
+    </li>
+    <%}%>
+
+    <%if (locals.isAuth && !locals.isAdmin) {%>
+    <li>
+        <a href="/orders">Orders</a>
+    </li>
+    <li>
+        <a href="/profile/update-profile/<%=locals.uid%>">Profile</a>
+    </li>
+    <%}%>
+
+    <%if (locals.isAdmin) {%>
+    <li>
+        <a href="/admin/products">Manage Products</a>
+    </li>
+    <li>
+        <a href="/admin/orders">Manage Orders</a>
+    </li>
+    <li>
+        <a href="/admin/update-admin/<%=locals.uid%>">Profile</a>
+    </li>
+    <%}%>
+
+    <%if (!locals.isAuth) {%>
+    <li>
+        <a href="/auth/login">Login</a>
+    </li>
+    <li>
+        <a href="/auth/login-Admin">Login (Admin)</a>
+    </li>
+    <%}%>
+</ul>

@@ -1,0 +1,18 @@
+<article class="cart cart-item" id="cart-item-<%=item.product.id%>">
+    <div class="cart-item-info">
+        <h3><%=item.product.title%></h3>
+        <p>
+            $<span class="cart-item-price" id="item-price-<%=item.product.id%>">
+                <%=item.totalPrice.toFixed(2)%>
+            </span>
+            <span class="cart-product-price">
+                ($<%=item.product.price.toFixed(2)%>)
+            </span>
+        </p>
+    </div>
+
+    <form class="cart-item-management" data-productid="<%=item.product.id%>" data-csrf="<%=locals.csrfToken%>">
+        <input id="quantity-<%=item.product.id%>" type="number" value="<%=item.quantity%>" required>
+        <button class="btn btn-primary">Update</button>
+    </form>
+</article>

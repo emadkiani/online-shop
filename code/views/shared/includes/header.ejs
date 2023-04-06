@@ -1,0 +1,16 @@
+<header id="main-header">
+    <div id="header-container">
+        <div id="logo"><a href="/">OnlineShop</a></div>
+        <nav><%-include('nav-items')%></nav>
+        <button id="mobile-menu-btn">
+            <%if (!locals.isAdmin) {%>
+            <p class="badge cart-number"><%=locals.cart.totalQuantity%></p>
+            <%}%>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<%-include('mobile-nav')%>

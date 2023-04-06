@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%-include('../../shared/includes/head', { pageTitle: product.title })%>
+        <meta name="description"
+            content="<%product.brand%> <%product.title%> <%product.summary%> <%product.description%>" />
+        <link rel="stylesheet" href="/styles/products.css" />
+        <script src="/scripts/cart-management.js" defer></script>
+    </head>
+
+    <body>
+        <%-include('../../shared/includes/header')%>
+        <main>
+            <section>
+                <div class="product-details">
+                    <img src="<%=product.imageUrl%>" alt="<%=product.title%>" />
+                    <div id="product-info">
+                        <div>
+                            <h1><%=product.brand%> <%=product.title%></h1>
+                            <%if(product.quantity > 0) {%>
+                            <%if(product.discount > 0) {%>
+                            <h3 class="color-green"><del class="color-red">$<%= product.price%></del>
+                                $<%=((product.price)*((100-product.discount)/100)).toFixed(2)%>
+                            </h3>
+                            <%} else {%>
+                            <h3 class="color-green">$<%=product.price%></h3>
+                            <%}%>
+                            <%} else {%>
+                            <h3 class="color-red">Out of stock</h3>
+                            <%}%>
+                        <h3><%=product.summary%></h3>
+                        </div>
+                        <%if(product.quantity <= 0) {%>
+                        <button class="btn-disabled" disabled>
+                            Unavailable
+                        </button>
+                        <%} else {%>
+                        <button class="btn btn-green add-to-cart" data-productid="<%=product.id%>"
+                            data-csrf="<%=locals.csrfToken%>">
+                            Add to Cart
+                        </button>
+                        <%}%>
+                    </div>
+                </div>
+                    <div class="product-description">
+                        <p><%=product.description%></p>
+                    </div>
+            </section>
+        </main>
+        <%-include('../../shared/includes/footer')%>
+    </body>
+
+</html>
